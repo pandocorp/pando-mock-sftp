@@ -92,7 +92,9 @@ fi
 
 if $startSshd; then
     log "Executing sshd"
-    exec /usr/sbin/sshd -D -e
+    exec /usr/sbin/sshd -D -e &
+    cd /home/testuser/upload
+    python -m http.server
 else
     log "Executing $*"
     exec "$@"

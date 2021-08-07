@@ -1,20 +1,19 @@
-FROM debian:buster
-MAINTAINER Adrian Dvergsdal [atmoz.net]
+FROM python:slim-buster
 
-# Steps done in one RUN layer:
-# - Install packages
-# - OpenSSH needs /var/run/sshd to run
-# - Remove generic host keys, entrypoint generates unique keys
+LABEL maintainer="brantan@pando.in"
+
 RUN apt-get update && \
     apt-get -y install openssh-server && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/sshd && \
-    rm -f /etc/ssh/ssh_host_*key*
+    rm -f /etc/ssh/ssh_host_*key* && \
+    python --version
 
 COPY files/sshd_config /etc/ssh/sshd_config
 COPY files/create-sftp-user /usr/local/bin/
 COPY files/entrypoint /
 
 EXPOSE 22
+EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint"]
