@@ -42,3 +42,5 @@ Uploaded files are server by python http server which can be accessed through th
 ```
 http://localhost:8000
 ```
+
+This repository is forked from https://github.com/atmoz/sftp
