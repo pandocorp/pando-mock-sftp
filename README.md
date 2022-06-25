@@ -36,3 +36,9 @@ Below is the command to upload data to the sftp server
 ```
 put <filename>
 ```
+
+Uploaded files are server by python http server which can be accessed through the browser using the below URL
+
+```
+http://localhost:8000
+```
