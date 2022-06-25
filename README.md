@@ -176,3 +176,17 @@ It depends on which linux distro and version you choose (see available images at
 - [List of `openssh-server` packages on Debian releases](https://packages.debian.org/search?keywords=openssh-server&searchon=names&exact=1&suite=all&section=main)
 
 **Note:** The time when this image was last built can delay the availability of an OpenSSH release. Since this is an automated build linked with [debian](https://hub.docker.com/_/debian/) and [alpine](https://hub.docker.com/_/alpine/) repos, the build will depend on how often they push changes (out of my control).  Typically this can take 1-5 days, but it can also take longer. You can of course make this more predictable by cloning this repo and run your own build manually.
+
+
+
+docker run -p 22:22 -p 8000:8000 -d pando-sftp testuser:test
+
+docker build -t pando-sftp .
+
+sftp -P 22 testuser@127.0.0.1
+
+ls, pwd, cd - remote
+lls, lpwd, lcd - local
+
+get - get file
+put - upload file

@@ -20,3 +20,6 @@ ChrootDirectory %h
 
 # Enable this for more logs
 #LogLevel VERBOSE
+
+#Password authentication
+PasswordAuthentication yes
